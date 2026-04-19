@@ -26,4 +26,14 @@ app.post('/api/login', (req, res) => {
   res.status(401).json({ message: "Identifiants invalides" });
 });
 
+// ================= WALLET =================
+const wallet = require('./wallet');
+
+// voir wallet
+app.get('/api/wallet', wallet.getWallet);
+
+// dépôt
+app.post('/api/deposit', wallet.deposit);
+// ==========================================
+
 module.exports = app;
